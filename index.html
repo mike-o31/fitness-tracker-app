@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fitness Tracker</h1>
+    <form id = "bmr">
+        <select id="sex">
+            <option value="choices">Sex</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <select id = "units">
+            <option value = "unitSystem">Unit System</option>
+            <option value = "imperial">Weight(lbs)/Height(inches)</option>
+            <option value = "metric"> Weight(kg)/Height(cm)</option>
+        </select>
+        <form id = "body-stats">
+            <input type = "number" id = "age" placeholder = "Age">
+            <input type = "number" id = "weight" placeholder = "Weight">
+            <input type = "number" id = "height" placeholder = "Height">
+            <button>Submit</button>
+        </form>
+    </form>
+    <form id="tdee">
+        <select id="activity">
+            <option value="activityLevel">Activity Level</option>
+            <option value="sedentary">Little to no exercise / Deskjob</option>
+            <option value="lightlyActive">Exercise 1-3 days/week</option>
+            <option value="moderatelyActive">Exercise 3-5 days/week</option>
+            <option value="veryActive">Exercise 6-7 days/week</option>
+            <option value="extremelyActive">Exercise 2x a day/week / Hard labor job</option>
+        </select>
+        <button>Calculate</button>
+    </form>
+    <form id = "daily-entry">
+        <input id = "morning-weight" type = "number" placeholder = "Morning Weigh-In">
+        <input id = "calories" type = "number" placeholder = "Calories Eaten">
+        <button>Add</button>
+    </form>
+    <div id = "log"></div>
+    <script src="fitness-tracker-app-functions.js"></script>
+    <script src="fitness-tracker-app.js"></script>
+</body>
+</html>
