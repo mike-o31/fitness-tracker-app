@@ -1,5 +1,7 @@
-let bmr
-let tdee
+let savedData = {
+    bmr: '',
+    tdee: ''
+}
 const sex = document.getElementById('sex')
 const measurements = document.getElementById('measurements')
 const age = document.getElementById('age')
