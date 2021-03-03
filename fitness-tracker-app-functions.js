@@ -22,6 +22,16 @@ const saveTdee = function (tdee) {
     localStorage.setItem('tdee', JSON.stringify(tdee))
 }
 
+const getSavedBmr = function () {
+    const bmrJSON = localStorage.getItem('bmr')
+    bmrJSON !== null ? JSON.parse(bmrJSON) : []
+}
+
+const getSavedTdee = function () {
+    const tdeeJSON = localStorage.getItem('tdee')
+    tdeeJSON !== null ? JSON.parse(tdeeJSON) : []
+}
+
 // Male metric BMR equation
 const metricMaleBmr = function () {
     const ageInt = parseInt(document.getElementById('age').value, 10)
@@ -81,5 +91,51 @@ const activityLevelEquations = function () {
     } else if (activity.options[activity.selectedIndex].value === 'extremelyActive') {
         tdee = bmr * 1.9
         return tdee
+    }
+}
+
+const statDropdown = function () {
+    if (units.options[units.selectedIndex].value === 'imperial') {
+        weight.setAttribute('placeholder', 'Weight(lbs)')
+        height.setAttribute('placeholder', 'Height(inches)')
+    } else if (units.options[units.selectedIndex].value === 'metric') {
+        weight.setAttribute('placeholder', 'Weight(kgs)')
+        height.setAttribute('placeholder', 'Height(cm)')
+    }
+}
+
+const bmrForm = function () {
+    if (sex.options[sex.selectedIndex].value === 'choices' || units.options[units.selectedIndex].value === 'unitSystem' || age.value === '' || weight.value === '' || height.value === '') {
+        alert('Please fill each box')
+    } else if (sex.options[sex.selectedIndex].value === 'male') {
+        if (units.options[units.selectedIndex].value === 'imperial') {
+            imperialMaleBmr()
+            bmrSummary()
+            saveBmr(bmr)
+        } else if (units.options[units.selectedIndex].value === 'metric') {
+            metricMaleBmr()
+            bmrSummary()
+            saveBmr(bmr)
+        }
+    } else if (sex.options[sex.selectedIndex].value === 'female') {
+        if (units.options[units.selectedIndex].value === 'imperial') {
+            imperialFemaleBmr()
+            bmrSummary()
+            saveBmr(bmr)
+        } else if (units.options[units.selectedIndex].value === 'metric') {
+            metricFemaleBmr()
+            bmrSummary()
+            saveBmr(bmr)
+        }
+    }
+}
+
+const tdeeForm = function () {
+    if (activity.options[activity.selectedIndex].value === 'activityLevel') {
+        alert('Select activity level')
+    } else {
+        activityLevelEquations()
+        tdeeSummary()
+        saveTdee(tdee)
     }
 }
