@@ -1,39 +1,39 @@
 // Generate BMR DOM summary
-const bmrSummary = function () {
+const bmrSummary = () => {
     const p = document.createElement('p')
     p.textContent = `BMR = ${Math.round(bmr)} calories`
     document.querySelector('#log').appendChild(p)
 }
 
 // Generate TDEE DOM summary
-const tdeeSummary = function () {
+const tdeeSummary = () => {
     const p = document.createElement('p')
     p.textContent = `TDEE = ${Math.round(tdee)} calories`
     document.querySelector('#log').appendChild(p)
 }
 
 // Save BMR to local storage
-const saveBmr = function (bmr) {
+const saveBmr = (bmr) => {
     localStorage.setItem('bmr', JSON.stringify(bmr))
 }
 
 // Save TDEE to local storage
-const saveTdee = function (tdee) {
+const saveTdee = (tdee) => {
     localStorage.setItem('tdee', JSON.stringify(tdee))
 }
 
-const getSavedBmr = function () {
+const getSavedBmr = () => {
     const bmrJSON = localStorage.getItem('bmr')
     bmrJSON !== null ? JSON.parse(bmrJSON) : []
 }
 
-const getSavedTdee = function () {
+const getSavedTdee = () => {
     const tdeeJSON = localStorage.getItem('tdee')
     tdeeJSON !== null ? JSON.parse(tdeeJSON) : []
 }
 
 // Male metric BMR equation
-const metricMaleBmr = function () {
+const metricMaleBmr = () => {
     const ageInt = parseInt(document.getElementById('age').value, 10)
     const weightInt = parseInt(document.getElementById('weight').value, 10)
     const heightInt = parseInt(document.getElementById('height').value, 10)
@@ -44,7 +44,7 @@ const metricMaleBmr = function () {
 }
 
 // Female metric BMR equation
-const metricFemaleBmr = function () {
+const metricFemaleBmr = () => {
     const ageInt = parseInt(document.getElementById('age').value, 10)
     const weightInt = parseInt(document.getElementById('weight').value, 10)
     const heightInt = parseInt(document.getElementById('height').value, 10)
@@ -55,7 +55,7 @@ const metricFemaleBmr = function () {
 }
 
 // Male imperial BMR equation
-const imperialMaleBmr = function () {
+const imperialMaleBmr = () => {
     const ageInt = parseInt(document.getElementById('age').value, 10)
     const weightInt = parseInt(document.getElementById('weight').value, 10)
     const heightInt = parseInt(document.getElementById('height').value, 10)
@@ -65,7 +65,7 @@ const imperialMaleBmr = function () {
 }
 
 // Female imperial BMR equation
-const imperialFemaleBmr = function () {
+const imperialFemaleBmr = () => {
     const ageInt = parseInt(document.getElementById('age').value, 10)
     const weightInt = parseInt(document.getElementById('weight').value, 10)
     const heightInt = parseInt(document.getElementById('height').value, 10)
@@ -75,7 +75,7 @@ const imperialFemaleBmr = function () {
 }
 
 // Activity level equations for TDEE
-const activityLevelEquations = function () {
+const activityLevelEquations = () => {
     if (activity.options[activity.selectedIndex].value === 'sedentary') {
         tdee = bmr * 1.2
         return tdee
@@ -94,7 +94,7 @@ const activityLevelEquations = function () {
     }
 }
 
-const statDropdown = function () {
+const statDropdown = () => {
     if (units.options[units.selectedIndex].value === 'imperial') {
         weight.setAttribute('placeholder', 'Weight(lbs)')
         height.setAttribute('placeholder', 'Height(inches)')
@@ -104,7 +104,7 @@ const statDropdown = function () {
     }
 }
 
-const bmrForm = function () {
+const bmrForm = () => {
     if (sex.options[sex.selectedIndex].value === 'choices' || units.options[units.selectedIndex].value === 'unitSystem' || age.value === '' || weight.value === '' || height.value === '') {
         alert('Please fill each box')
     } else if (sex.options[sex.selectedIndex].value === 'male') {
@@ -130,7 +130,7 @@ const bmrForm = function () {
     }
 }
 
-const tdeeForm = function () {
+const tdeeForm = () => {
     if (activity.options[activity.selectedIndex].value === 'activityLevel') {
         alert('Select activity level')
     } else {

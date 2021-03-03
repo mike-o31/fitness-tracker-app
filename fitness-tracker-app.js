@@ -8,16 +8,16 @@ const height = document.getElementById('height')
 const activity = document.getElementById('activity')
 
 
-document.querySelector('#units').addEventListener('change', function (e) {
+document.querySelector('#units').addEventListener('change', (e) => {
     statDropdown()
 })
 
-document.querySelector('#bmr').addEventListener('submit', function (e) {
+document.querySelector('#bmr').addEventListener('submit', (e) => {
     e.preventDefault()
     bmrForm()
 })
 
-document.querySelector('#tdee').addEventListener('submit', function (e) {
+document.querySelector('#tdee').addEventListener('submit', (e) => {
     e.preventDefault()
     tdeeForm()
 })
